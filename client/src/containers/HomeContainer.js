@@ -1,28 +1,31 @@
 
 import React from 'react';
 
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 
 class HomeContainer extends React.Component {
-  constructor () {
-    super()
-     this.state = {
-       code: '',
-       description: '',
-       status: 'ready',
-       isLoading: true
-
-
-     }
-   }
 
    render() {
 
-     return {
+     const divStyle = {
+       marginLeft: '20px',
+     };
 
-     }
+     return (
+
+        <Navbar  expand="xl" variant="dark" bg="dark">
+          <Navbar.Brand style={divStyle} href="#">Keyword Mashup</Navbar.Brand>
+        </Navbar>
+
+
+
+     )
+
+
    }
 
  }
 
- export default HomeContainer
+ export default HomeContainer;
