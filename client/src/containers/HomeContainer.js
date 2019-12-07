@@ -68,26 +68,24 @@ class HomeContainer extends React.Component {
 
 
         <Form onSubmit={handleSearchSubmit} >
-              <InputGroup className="mb-3">
+
                 <FormControl
                   placeholder="eg. how to build a deck"
                   aria-label="comment..."
                   aria-describedby="basic-addon2"
                   onChange={this.handleSearchChange}
                 />
-                <InputGroup.Append>
-                    <Button variant="dark" type="submit" size="sm">
+
+                <br></br>
+                  <Button variant="primary" type="submit" size="lg">
                     Enter keyword
                  </Button>
-                </InputGroup.Append>
-              </InputGroup>
+
               </Form>
 
 
-        <br></br>
-        <Button variant="primary" size="lg">
-          Search
-        </Button>
+
+
         </Container>
 
 
