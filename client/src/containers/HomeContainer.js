@@ -2,6 +2,7 @@
 import React from 'react';
 
 import NavigationBar from '../components/NavigationBar';
+import SearchForm from '../components/SearchForm';
 
 import Container from 'react-bootstrap/Container';
 import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
@@ -55,30 +56,16 @@ class HomeContainer extends React.Component {
 
 
      return (
-        <>
-        <NavigationBar />
-        <br></br>
+      <>
+      <NavigationBar />
+      <br></br>
 
         <Container>
         <h1>Get New Keyword Suggestions</h1>
         <br></br>
 
 
-        <Form onSubmit={handleSearchSubmit} >
-
-                <FormControl
-                  placeholder="eg. how to build a deck"
-                  aria-label="comment..."
-                  aria-describedby="basic-addon2"
-                  onChange={this.handleSearchChange}
-                />
-
-                <br></br>
-                  <Button variant="primary" type="submit" size="lg">
-                    Enter keyword
-                 </Button>
-
-              </Form>
+      <SearchForm />
 
 
 
