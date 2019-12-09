@@ -1,7 +1,8 @@
 
 import React from 'react';
 
-import Navbar from 'react-bootstrap/Navbar';
+import NavigationBar from '../components/NavigationBar';
+
 import Container from 'react-bootstrap/Container';
 import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
@@ -51,16 +52,12 @@ class HomeContainer extends React.Component {
 
    }
 
-     const divStyle = {
-       marginLeft: '20px',
-     };
+
 
      return (
-<>
-        <Navbar  expand="xl" variant="dark" bg="dark">
-          <Navbar.Brand style={divStyle} href="#">Keyword Mashup</Navbar.Brand>
-        </Navbar>
-<br></br>
+        <>
+        <NavigationBar />
+        <br></br>
 
         <Container>
         <h1>Get New Keyword Suggestions</h1>
