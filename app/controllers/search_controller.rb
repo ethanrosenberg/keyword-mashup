@@ -8,7 +8,7 @@ class SearchController < ApplicationController
 
     data = json_response[1]
 
-    render json: { results: data }
+    render json: data
 
 
   end

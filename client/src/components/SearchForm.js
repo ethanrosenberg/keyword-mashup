@@ -8,7 +8,7 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
      this.state = {
        keyword : '',
-       results: [],
+       results: '',
        success : ''
      }
 
@@ -38,8 +38,11 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
         .then(r => r.json())
         .then(response => {
 
+          console.log(response)
+
           this.setState({
-            success: true
+            success: true,
+            results: response
           })
         })
   }
@@ -64,6 +67,17 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
                   Enter keyword
                </Button>
             </Form>
+            <br></br>
+            <h6>Results</h6>
+            { this.state.results.length > 0
+              ?
+              this.state.results.map((item, key) =>
+                <p>{item}</p>
+              )
+              :
+              null
+
+            }
       </div>
     )
 
