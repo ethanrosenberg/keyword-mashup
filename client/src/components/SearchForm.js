@@ -8,6 +8,7 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
      this.state = {
        keyword : '',
+       results: [],
        success : ''
      }
 
@@ -23,25 +24,24 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
     const handleSearchSubmit = event => {
 
-    event.preventDefault()
+      event.preventDefault()
 
-    const headers = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({  keyword: this.state.keyword })
-    }
+      const headers = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({  keyword: this.state.keyword })
+      }
 
-    fetch('http://localhost:3000/api/v1/new_search', headers)
-      .then(r => r.json())
-      .then(response => {
+      fetch('http://localhost:3000/api/v1/new_search', headers)
+        .then(r => r.json())
+        .then(response => {
 
-        this.setState({
-          success: true
+          this.setState({
+            success: true
+          })
         })
-
-      })
   }
 
     const divStyle = {
@@ -51,7 +51,7 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
     return (
       <div className="searchForm">
-      <Form onSubmit={this.handleSearchSubmit} >
+      <Form onSubmit={handleSearchSubmit} >
               <FormControl
                 placeholder="eg. how to build a deck"
                 aria-label="comment..."
