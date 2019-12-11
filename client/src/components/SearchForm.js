@@ -20,11 +20,20 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
     });
   }
 
+
+
   render() {
 
-    const handleSearchSubmit = event => {
+    const handleKeywordClick = event => {
 
-      event.preventDefault()
+     this.setState({
+       keyword: event.target.textContent
+     });
+
+     search()
+   }
+
+    const search = () => {
 
       const headers = {
         method: "POST",
@@ -42,14 +51,26 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
           this.setState({
             success: true,
-            results: response
+            results: [...this.state.results, ...response]
+
           })
         })
+    }
+
+    const handleSearchSubmit = event => {
+
+      event.preventDefault()
+
+      search()
+
+
   }
 
     const divStyle = {
       marginLeft: '20px',
     };
+
+
 
 
     return (
@@ -68,16 +89,19 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
                </Button>
             </Form>
             <br></br>
-            <h6>Results</h6>
+            <h6>Results - {this.state.results.length}</h6>
             { this.state.results.length > 0
               ?
               this.state.results.map((item, key) =>
-                <p>{item}</p>
+                <p key={key} onClick={handleKeywordClick} align="left">{item}</p>
               )
               :
               null
 
             }
+            <br></br>
+            <br></br>
+            <br></br>
       </div>
     )
 
