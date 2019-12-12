@@ -6,6 +6,7 @@ ruby '2.6.1'
 gem 'faraday'
 
 gem 'rack-cors'
+gem 'down'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

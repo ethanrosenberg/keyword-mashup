@@ -36,9 +36,8 @@ import Toggle from 'react-bootstrap-toggle';
 
      this.setState({
        keyword: event.target.textContent
-     });
+     }, () => search());
 
-     search()
    }
 
     const search = () => {
@@ -51,6 +50,9 @@ import Toggle from 'react-bootstrap-toggle';
         body: JSON.stringify({  keyword: this.state.keyword })
       }
 
+      console.log("keyword being passed for search: ")
+      console.log(this.state.keyword)
+
       fetch('http://localhost:3000/api/v1/new_search', headers)
         .then(r => r.json())
         .then(response => {
@@ -59,7 +61,7 @@ import Toggle from 'react-bootstrap-toggle';
 
           this.setState({
             success: true,
-            results: [...this.state.results, ...response]
+            results: [...this.state.results, ...response.results]
 
           })
         })
