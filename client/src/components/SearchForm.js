@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
+import Toggle from 'react-bootstrap-toggle';
+
  class SearchForm extends React.Component {
    constructor() {
      super()
@@ -9,10 +11,16 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
      this.state = {
        keyword : '',
        results: '',
-       success : ''
+       success : '',
+       toggleActive: false
      }
 
+
    }
+
+   onToggle() {
+    this.setState({ toggleActive: !this.state.toggleActive });
+  }
 
    handleSearchChange = event => {
     this.setState({
@@ -75,6 +83,8 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
     return (
       <div className="searchForm">
+      <br></br>
+
       <Form onSubmit={handleSearchSubmit} >
               <FormControl
                 placeholder="eg. how to build a deck"
@@ -82,6 +92,8 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
                 aria-describedby="basic-addon2"
                 onChange={this.handleSearchChange}
               />
+
+
 
               <br></br>
                 <Button variant="primary" type="submit" size="lg">
@@ -102,6 +114,8 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
             <br></br>
             <br></br>
             <br></br>
+
+
       </div>
     )
 
