@@ -31,7 +31,8 @@ class HomeContainer extends React.Component {
       <br></br>
 
         <Container>
-        <h1>Get New Keyword Suggestions</h1>
+        <h1>Dive Deep into Google...</h1>
+        <h6>Discover all the highest quality search terms </h6>
         <br></br>
 
 

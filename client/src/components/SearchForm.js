@@ -29,8 +29,11 @@ import Toggle from 'react-bootstrap-toggle';
     this.setState({
       keyword: event.target.value
     });
+
+
   }
 
+   formBg = { backgroundColor: '#c6e2ff' };
 
 
   render() {
@@ -99,6 +102,7 @@ import Toggle from 'react-bootstrap-toggle';
 
       <Form onSubmit={handleSearchSubmit} >
               <FormControl
+              style={this.state.recursive ? this.formBg : null}
                 placeholder="eg. how to build a deck"
                 aria-label="comment..."
                 aria-describedby="basic-addon2"
@@ -118,7 +122,7 @@ import Toggle from 'react-bootstrap-toggle';
 
               <br></br>
                 <Button variant="primary" type="submit" size="lg">
-                  Enter keyword
+                  Search New Suggestions
                </Button>
             </Form>
             <br></br>
