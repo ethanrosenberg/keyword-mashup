@@ -12,18 +12,10 @@ class HomeContainer extends React.Component {
   constructor() {
     super()
 
-
   }
 
 
-
    render() {
-
-
-
-
-
-
 
      return (
       <>
@@ -35,21 +27,13 @@ class HomeContainer extends React.Component {
         <h6>Discover all the highest quality search terms </h6>
         <br></br>
 
-
       <SearchForm />
 
-
-
-
         </Container>
-
-
-
 
         </>
 
      )
-
 
    }
 
