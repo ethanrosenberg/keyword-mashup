@@ -12,15 +12,18 @@ import Toggle from 'react-bootstrap-toggle';
        keyword : '',
        results: '',
        success : '',
-       toggleActive: false
+       recursive: false
      }
 
 
    }
 
-   onToggle() {
-    this.setState({ toggleActive: !this.state.toggleActive });
-  }
+   handleSwitchChange = () => {
+
+     this.setState({
+       recursive: !this.state.recursive
+     });
+   }
 
    handleSearchChange = event => {
     this.setState({
@@ -95,7 +98,15 @@ import Toggle from 'react-bootstrap-toggle';
                 onChange={this.handleSearchChange}
               />
 
+              <Form>
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  onChange={this.handleSwitchChange}
+                  label="Check this switch"
+                />
 
+              </Form>
 
               <br></br>
                 <Button variant="primary" type="submit" size="lg">
