@@ -45,12 +45,16 @@ import Toggle from 'react-bootstrap-toggle';
 
     const search = () => {
 
+      const queryType = this.state.recursive ? 'deep-dive' : 'normal'
+
+
+
       const headers = {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({  keyword: this.state.keyword })
+        body: JSON.stringify({  keyword: this.state.keyword, searchType: queryType })
       }
 
       console.log("keyword being passed for search: ")
@@ -83,6 +87,9 @@ import Toggle from 'react-bootstrap-toggle';
       marginLeft: '20px',
     };
 
+    const toggleStyle = {
+      float: 'right',
+    };
 
 
 
@@ -100,10 +107,11 @@ import Toggle from 'react-bootstrap-toggle';
 
               <Form>
                 <Form.Check
+                style={toggleStyle}
                   type="switch"
                   id="custom-switch"
                   onChange={this.handleSwitchChange}
-                  label="Check this switch"
+                  label="Deep Dive?"
                 />
 
               </Form>
