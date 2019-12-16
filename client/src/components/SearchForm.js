@@ -29,9 +29,17 @@ import Toggle from 'react-bootstrap-toggle';
     this.setState({
       keyword: event.target.value
     });
-
-
   }
+
+  handleResetClick = event => {
+
+     this.setState({
+       results: '',
+       keyword: '',
+       success: '',
+       recursive: false
+     });
+   }
 
    formBg = { backgroundColor: '#c6e2ff' };
 
@@ -45,8 +53,6 @@ import Toggle from 'react-bootstrap-toggle';
      }, () => search());
 
    }
-
-
 
     const search = () => {
 
@@ -90,12 +96,23 @@ import Toggle from 'react-bootstrap-toggle';
 
   }
 
+
+
     const divStyle = {
       marginLeft: '20px',
     };
 
     const toggleStyle = {
       float: 'right',
+    };
+
+    const submitStyle = {
+      backgroundColor: '#000000'
+    };
+
+    const resetStyle = {
+      marginLeft: '3px',
+      backgroundColor: '#2c5887'
     };
 
 
@@ -125,9 +142,12 @@ import Toggle from 'react-bootstrap-toggle';
               </Form>
 
               <br></br>
-                <Button variant="primary" type="submit" size="lg">
+                <Button style={submitStyle} variant="primary" type="submit" size="lg">
                   Search New Suggestions
                </Button>
+               <Button onClick={this.handleResetClick} style={resetStyle} variant="primary" type="button" size="lg">
+                 Reset
+              </Button>
             </Form>
             <br></br>
             <h6>Results - {this.state.results.length}</h6>
