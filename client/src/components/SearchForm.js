@@ -3,6 +3,7 @@ import React from 'react';
 import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
 import Toggle from 'react-bootstrap-toggle';
+import ReactDOM from 'react-dom';
 
  class SearchForm extends React.Component {
    constructor() {
@@ -39,6 +40,9 @@ import Toggle from 'react-bootstrap-toggle';
        success: '',
        recursive: false
      });
+
+     ReactDOM.findDOMNode(this.refs.sStrike).value = '';
+     ReactDOM.findDOMNode(this.refs.deepswitch).value = ''
    }
 
    formBg = { backgroundColor: '#c6e2ff' };
@@ -131,6 +135,7 @@ import Toggle from 'react-bootstrap-toggle';
       <Form onSubmit={handleSearchSubmit} >
               <FormControl
               style={formInputStyle}
+               ref="sStrike"
                 placeholder="eg. how to build a deck"
                 aria-label="comment..."
                 aria-describedby="basic-addon2"
@@ -141,6 +146,7 @@ import Toggle from 'react-bootstrap-toggle';
                 <Form.Check
                 style={toggleStyle}
                   type="switch"
+                  ref='deepswitch'
                   id="custom-switch"
                   onChange={this.handleSwitchChange}
                   label="Deep Dive?"
@@ -157,7 +163,7 @@ import Toggle from 'react-bootstrap-toggle';
               </Button>
             </Form>
             <br></br>
-            <h6 style={ { float: 'left' } }>Results - {this.state.results.length}</h6>
+            <h6 style={ { align: 'left' } }>Results - {this.state.results.length}</h6><br></br>
             { this.state.results.length > 0
               ?
               this.state.results.map((item, key) =>
