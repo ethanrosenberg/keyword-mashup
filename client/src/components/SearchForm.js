@@ -46,6 +46,8 @@ import Toggle from 'react-bootstrap-toggle';
 
    }
 
+
+
     const search = () => {
 
       const queryType = this.state.recursive ? 'deep-dive' : 'normal'
@@ -68,10 +70,12 @@ import Toggle from 'react-bootstrap-toggle';
         .then(response => {
 
           console.log(response)
+          const updatedState = [...this.state.results, ...response.results]
+          const unique = updatedState.filter(function(item, i, ar){ return ar.indexOf(item) === i; });
 
           this.setState({
             success: true,
-            results: [...this.state.results, ...response.results]
+            results: unique
 
           })
         })

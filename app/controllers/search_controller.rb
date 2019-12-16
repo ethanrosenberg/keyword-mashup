@@ -45,6 +45,8 @@ class SearchController < ApplicationController
 
       sleepTime = rand(0.8..1.9)
 
+      puts '*** SLEEPING FOR ' + sleepTime.to_s + ' seconds... ***'
+
       puts '*** HARVESTED: ' + query_results.length.to_s + ' | TOTAL => ' + results.length.to_s + ' ***'
 
       sleep sleepTime
