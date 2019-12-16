@@ -106,6 +106,13 @@ import Toggle from 'react-bootstrap-toggle';
       float: 'right',
     };
 
+    const formInputStyle = {
+      backgroundColor: this.state.recursive ? '#c6e2ff' : '#FFFFFF',
+      height: '50px',
+      fontSize: '20px'
+
+    };
+
     const submitStyle = {
       backgroundColor: '#000000'
     };
@@ -123,7 +130,7 @@ import Toggle from 'react-bootstrap-toggle';
 
       <Form onSubmit={handleSearchSubmit} >
               <FormControl
-              style={this.state.recursive ? this.formBg : null}
+              style={formInputStyle}
                 placeholder="eg. how to build a deck"
                 aria-label="comment..."
                 aria-describedby="basic-addon2"
@@ -150,7 +157,7 @@ import Toggle from 'react-bootstrap-toggle';
               </Button>
             </Form>
             <br></br>
-            <h6>Results - {this.state.results.length}</h6>
+            <h6 style={ { float: 'left' } }>Results - {this.state.results.length}</h6>
             { this.state.results.length > 0
               ?
               this.state.results.map((item, key) =>
