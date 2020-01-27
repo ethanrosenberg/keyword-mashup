@@ -4,6 +4,7 @@ import { Form, Button, FormControl, InputGroup } from 'react-bootstrap'
 
 import Toggle from 'react-bootstrap-toggle';
 import ReactDOM from 'react-dom';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
  class SearchForm extends React.Component {
    constructor() {
@@ -13,7 +14,8 @@ import ReactDOM from 'react-dom';
        keyword : '',
        results: '',
        success : '',
-       recursive: false
+      copied: false,
+      recursive: false
      }
 
 
@@ -38,17 +40,41 @@ import ReactDOM from 'react-dom';
        results: '',
        keyword: '',
        success: '',
+      copied: false,
        recursive: false
      });
 
      ReactDOM.findDOMNode(this.refs.sStrike).value = '';
-     ReactDOM.findDOMNode(this.refs.deepswitch).value = ''
+
+     this.toggleRef.current.click()
+
+
+
    }
+
+
+
 
    formBg = { backgroundColor: '#c6e2ff' };
 
+   simulateClick = event => {
+      event.click()
+   }
+
+
+
+
 
   render() {
+
+ const toggleRef = React.useRef(null)
+
+    const simulateClick = e => {
+
+          e.click()
+
+
+      }
 
     const handleKeywordClick = event => {
 
@@ -93,12 +119,17 @@ import ReactDOM from 'react-dom';
 
     const handleSearchSubmit = event => {
 
+
+
+
       event.preventDefault()
 
       search()
 
 
   }
+
+
 
 
 
@@ -121,6 +152,12 @@ import ReactDOM from 'react-dom';
       backgroundColor: '#000000'
     };
 
+    const copyStyle = {
+      backgroundColor: '#000000',
+      float: 'right',
+      marginTop: '3px',
+    };
+
     const resetStyle = {
       marginLeft: '3px',
       backgroundColor: '#2c5887'
@@ -129,14 +166,14 @@ import ReactDOM from 'react-dom';
 
 
     return (
-      <div className="searchForm">
+      <div className="keywordSearchForm">
       <br></br>
 
       <Form onSubmit={handleSearchSubmit} >
               <FormControl
               style={formInputStyle}
-               ref="sStrike"
-                placeholder="eg. how to build a deck"
+               ref={this.inputRef}
+                placeholder="eg. how to build a patio deck"
                 aria-label="comment..."
                 aria-describedby="basic-addon2"
                 onChange={this.handleSearchChange}
@@ -146,11 +183,12 @@ import ReactDOM from 'react-dom';
                 <Form.Check
                 style={toggleStyle}
                   type="switch"
-                  ref='deepswitch'
+                  ref={simulateClick}
                   id="custom-switch"
                   onChange={this.handleSwitchChange}
                   label="Deep Dive?"
                 />
+
 
               </Form>
 
@@ -163,7 +201,17 @@ import ReactDOM from 'react-dom';
               </Button>
             </Form>
             <br></br>
-            <h6 style={ { align: 'left' } }>Results - {this.state.results.length}</h6><br></br>
+            <h6 style={ { align: 'left' } }>Results - {this.state.results.length}</h6>
+
+             <CopyToClipboard text={this.state.results.toString().split(",").join("\n")} onCopy={() => this.setState({copied: true})}>
+                <Button style={copyStyle} variant="primary" type="submit" size="sm">
+                  Copy To Clipboard
+               </Button>
+             </CopyToClipboard>
+
+            {this.state.copied ? alert('Copied!') : null}
+            <br></br>
+            <br></br>
             { this.state.results.length > 0
               ?
               this.state.results.map((item, key) =>

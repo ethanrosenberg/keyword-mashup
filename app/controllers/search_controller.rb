@@ -31,7 +31,8 @@ class SearchController < ApplicationController
 
   def deep_dive_search(keyword)
 
-    alphabet = ('a'..'g').to_a
+    alphabet = ('a'..'z').to_a
+    #alphabet = ('a'..'g').to_a
     results = []
 
     alphabet.each do |letter|

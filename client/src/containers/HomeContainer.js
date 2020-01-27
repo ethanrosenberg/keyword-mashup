@@ -24,7 +24,7 @@ class HomeContainer extends React.Component {
 
         <Container>
         <h1>Dive Deep into Google...</h1>
-        <h6>Discover all the highest quality search terms </h6>
+        <h6>Discover what users are really searching for... </h6>
         <br></br>
 
       <SearchForm />

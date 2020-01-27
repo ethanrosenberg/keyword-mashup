@@ -13,7 +13,7 @@ const NavigationBar = () => {
     return (
       <div className="NavigationBar">
       <Navbar  expand="xl" variant="dark" bg="dark">
-        <Navbar.Brand style={divStyle} href="#">Keyword Mashup</Navbar.Brand>
+        <Navbar.Brand style={divStyle} href="/">Keyword Mashup</Navbar.Brand>
       </Navbar>
       </div>
     )
