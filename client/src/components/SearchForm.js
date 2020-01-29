@@ -57,9 +57,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
    formBg = { backgroundColor: '#c6e2ff' };
 
-   simulateClick = event => {
-      event.click()
-   }
+
 
 
 
@@ -67,13 +65,10 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
   render() {
 
- const toggleRef = React.useRef(null)
 
     const simulateClick = e => {
 
           e.click()
-
-
       }
 
     const handleKeywordClick = event => {
@@ -165,6 +160,40 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
       <div className="keywordSearchForm">
       <br></br>
@@ -183,7 +212,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
                 <Form.Check
                 style={toggleStyle}
                   type="switch"
-                  ref={simulateClick}
+                  ref={this.simulateClick}
                   id="custom-switch"
                   onChange={this.handleSwitchChange}
                   label="Deep Dive?"
