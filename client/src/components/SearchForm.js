@@ -15,7 +15,8 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
        results: '',
        success : '',
       copied: false,
-      recursive: false
+      recursive: false,
+      current_search: ''
      }
 
 
@@ -53,13 +54,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
    }
 
 
-
-
    formBg = { backgroundColor: '#c6e2ff' };
-
-
-
-
 
 
 
@@ -157,41 +152,6 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
       marginLeft: '3px',
       backgroundColor: '#2c5887'
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     return (
