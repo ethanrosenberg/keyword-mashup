@@ -6,6 +6,17 @@ import Toggle from 'react-bootstrap-toggle';
 import ReactDOM from 'react-dom';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
+import { css } from "@emotion/core";
+// First way to import
+import { ClipLoader } from "react-spinners";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
+
  class SearchForm extends React.Component {
    constructor() {
      super()
@@ -16,7 +27,8 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
        success : '',
       copied: false,
       recursive: false,
-      current_search: ''
+      current_search: '',
+      loading: false
      }
 
 

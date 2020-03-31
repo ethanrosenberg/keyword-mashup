@@ -6,13 +6,15 @@ class SearchController < ApplicationController
   def new_search
 
     if params[:searchType] === 'normal'
+      #byebug
 
-      response = Faraday.new(url: 'http://suggestqueries.google.com/complete/search?client=firefox&q=' + params[:keyword],
-                 headers: { 'User-Agent' => 'Mozilla/5.0'}).get
+      #response = Faraday.new(url: 'http://suggestqueries.google.com/complete/search?client=firefox&q=' + params[:keyword],
+                 #headers: { 'User-Agent' => 'Mozilla/5.0'}).get
+      response = new_query(params[:keyword])
 
-      json_response = JSON.parse(response.body)
+      #json_response = JSON.parse(response)
 
-      render json: { :query => params[:keyword], :status => "200", :results => json_response[1] }
+      render json: { :query => params[:keyword], :status => "200", :results => response }
 
     elsif params[:searchType] === 'deep-dive'
 
@@ -61,8 +63,10 @@ class SearchController < ApplicationController
 
   def new_query(query)
 
-    response = Faraday.new(url: 'http://suggestqueries.google.com/complete/search?client=firefox&q=' + query,
-               headers: { 'User-Agent' => 'Mozilla/5.0'}).get
+    response = Faraday.new(url: 'http://suggestqueries.google.com/complete/search?client=firefox&q=' + query).get
+               #headers: { 'User-Agent' => 'Mozilla/5.0'}).get
+
+               #byebug
 
     json_response = JSON.parse(response.body)
 
